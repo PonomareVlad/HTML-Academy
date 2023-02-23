@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>2.4 — HTML Academy</title>
+    <link href="/styles.css" rel="stylesheet">
+    <meta content="dark light" name="color-scheme">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+    <link href="https://testing.utils.ponomarevlad.ru/src/styles.css" rel="stylesheet">
+    <script src="https://testing.utils.ponomarevlad.ru/src/utils.mjs"></script>
+</head>
+<body>
+<h2>Функция, которая принимает три параметра: исходную строку, минимальную длину и строку с добавочными символами — и
+    возвращает исходную строку, дополненную указанными символами до заданной длины</h2>
+<form class="test-config">
+    <div class="flex">
+        <label for="url">Ссылка на JS файл:</label>
+        <input id="url" name="url" placeholder="https://raw.githubusercontent.com/User/Repo/Branch/Dir/script.js"
+               type="url">
+    </div>
+    <br>
+    <label for="func">Название функции:</label>
+    <input id="func" name="func" placeholder="function_name">
+    <button type="submit">Подключить</button>
+    <p class="break">
+        <script>
+            ["url", "func"].forEach(id => inputValueByParam(id))
+            printTargetParams()
+        </script>
+    </p>
+</form>
+<fieldset class="test-case" id="single">
+    <legend><a href="#single">Тест одного добавочного символа</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('1', 2, '0'),
+            isValid = result === '01';
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="multiple">
+    <legend><a href="#multiple">Тест нескольких добавочных символов</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('1', 4, '0'),
+            isValid = result === '0001';
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="cut">
+    <legend><a href="#cut">Тест обрезания добавочных символов</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('q', 4, 'werty'),
+            isValid = result === 'werq';
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="multiple-cut">
+    <legend><a href="#multiple-cut">Тест обрезания нескольких добавочных символов</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('q', 4, 'we'),
+            isValid = result === 'wweq';
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="overflow">
+    <legend><a href="#overflow">Тест строки превышающей заданную длину</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('qwerty', 4, '0'),
+            isValid = result === 'qwerty';
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+</body>
+</html>
