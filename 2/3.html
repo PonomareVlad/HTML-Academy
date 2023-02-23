@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>2.3 — HTML Academy</title>
+    <link href="/styles.css" rel="stylesheet">
+    <meta content="dark light" name="color-scheme">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+    <link href="https://testing.utils.ponomarevlad.ru/src/styles.css" rel="stylesheet">
+    <script src="https://testing.utils.ponomarevlad.ru/src/utils.mjs"></script>
+</head>
+<body>
+<h2>Функция, которая принимает строку, извлекает содержащиеся в ней цифры от 0 до 9 и возвращает их в виде целого
+    положительного числа</h2>
+<form class="test-config">
+    <div class="flex">
+        <label for="url">Ссылка на JS файл:</label>
+        <input id="url" name="url" placeholder="https://raw.githubusercontent.com/User/Repo/Branch/Dir/script.js"
+               type="url">
+    </div>
+    <br>
+    <label for="func">Название функции:</label>
+    <input id="func" name="func" placeholder="function_name">
+    <button type="submit">Подключить</button>
+    <p class="break">
+        <script>
+            ["url", "func"].forEach(id => inputValueByParam(id))
+            printTargetParams()
+        </script>
+    </p>
+</form>
+<fieldset class="test-case" id="after">
+    <legend><a href="#after">Тест строки которая содержит текст после числа</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('2023 год'),
+            isValid = result === 2023;
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="before">
+    <legend><a href="#before">Тест строки которая содержит текст пере числом</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('ECMAScript 2022'),
+            isValid = result === 2022;
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="multiple">
+    <legend><a href="#multiple">Тест строки которая содержит несколько чисел</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('1 кефир, 0.5 батона'),
+            isValid = result === 105;
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="zero-digits">
+    <legend><a href="#zero-digits">Тест строки которая содержит число с нулевыми разрядами</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('агент 007'),
+            isValid = result === 7;
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="no-digits">
+    <legend><a href="#no-digits">Тест строки которая не содержит цифр</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('а я томат'),
+            isValid = isNaN(result);
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+</body>
+</html>
