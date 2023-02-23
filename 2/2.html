@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>2.2 — HTML Academy</title>
+    <link href="/styles.css" rel="stylesheet">
+    <meta content="dark light" name="color-scheme">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+    <link href="https://testing.utils.ponomarevlad.ru/src/styles.css" rel="stylesheet">
+    <script src="https://testing.utils.ponomarevlad.ru/src/utils.mjs"></script>
+</head>
+<body>
+<h2>Функция для проверки, является ли строка палиндромом</h2>
+<form class="test-config">
+    <div class="flex">
+        <label for="url">Ссылка на JS файл:</label>
+        <input id="url" name="url" placeholder="https://raw.githubusercontent.com/User/Repo/Branch/Dir/script.js"
+               type="url">
+    </div>
+    <br>
+    <label for="func">Название функции:</label>
+    <input id="func" name="func" placeholder="function_name">
+    <button type="submit">Подключить</button>
+    <p class="break">
+        <script>
+            ["url", "func"].forEach(id => inputValueByParam(id))
+            printTargetParams()
+        </script>
+    </p>
+</form>
+<fieldset class="test-case" id="palindrome">
+    <legend><a href="#palindrome">Тест строки которая является палиндромом</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('топот'),
+            isValid = result === true;
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="palindrome-case">
+    <legend><a href="#palindrome-case">Тест строки которая является палиндромом без учета регистра</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('ДовОд'),
+            isValid = result === true;
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="non-palindrome">
+    <legend><a href="#non-palindrome">Тест строки которая не является палиндромом</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            result = f('Кекс'),
+            isValid = result === false;
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid, result})</script>
+    </details>
+</fieldset>
+</body>
+</html>
