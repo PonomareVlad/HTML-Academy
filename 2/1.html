@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>2.1 — HTML Academy</title>
+    <link href="/styles.css" rel="stylesheet">
+    <meta content="dark light" name="color-scheme">
+    <meta content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+    <link href="https://testing.utils.ponomarevlad.ru/src/styles.css" rel="stylesheet">
+    <script src="https://testing.utils.ponomarevlad.ru/src/utils.mjs"></script>
+</head>
+<body>
+<h2>Функция для проверки длины строки</h2>
+<form class="test-config">
+    <div class="flex">
+        <label for="url">Ссылка на JS файл:</label>
+        <input id="url" name="url" placeholder="https://raw.githubusercontent.com/User/Repo/Branch/Dir/script.js"
+               type="url">
+    </div>
+    <br>
+    <label for="func">Название функции:</label>
+    <input id="func" name="func" placeholder="function_name">
+    <button type="submit">Подключить</button>
+    <p class="break">
+        <script>
+            ["url", "func"].forEach(id => inputValueByParam(id))
+            printTargetParams()
+        </script>
+    </p>
+</form>
+<fieldset class="test-case" id="short">
+    <legend><a href="#short">Тест меньшей длины</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            isValid = f('проверяемая строка', 20);
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="equal">
+    <legend><a href="#equal">Тест равной длины</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            isValid = f('проверяемая строка', 18);
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid})</script>
+    </details>
+</fieldset>
+<fieldset class="test-case" id="large">
+    <legend><a href="#large">Тест большей длины</a></legend>
+    <h3>Условие:</h3>
+    <script class="visible">
+        var f = getTargetFunction(),
+            isValid = f('проверяемая строка', 10);
+    </script>
+    <h4>Результат:</h4>
+    <details>
+        <summary>
+            <script>printStatus(isValid)</script>
+        </summary>
+        <script>printVars({isValid})</script>
+    </details>
+</fieldset>
+</body>
+</html>
