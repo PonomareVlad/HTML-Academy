@@ -33,14 +33,15 @@
     <h3>Условие:</h3>
     <script class="visible">
         var f = getTargetFunction(),
-            isValid = f('проверяемая строка', 20);
+            result = f('проверяемая строка', 20),
+            isValid = result === true;
     </script>
     <h4>Результат:</h4>
     <details>
         <summary>
             <script>printStatus(isValid)</script>
         </summary>
-        <script>printVars({isValid})</script>
+        <script>printVars({isValid, result})</script>
     </details>
 </fieldset>
 <fieldset class="test-case" id="equal">
@@ -48,14 +49,15 @@
     <h3>Условие:</h3>
     <script class="visible">
         var f = getTargetFunction(),
-            isValid = f('проверяемая строка', 18);
+            result = f('проверяемая строка', 18),
+            isValid = result === true;
     </script>
     <h4>Результат:</h4>
     <details>
         <summary>
             <script>printStatus(isValid)</script>
         </summary>
-        <script>printVars({isValid})</script>
+        <script>printVars({isValid, result})</script>
     </details>
 </fieldset>
 <fieldset class="test-case" id="large">
@@ -63,14 +65,15 @@
     <h3>Условие:</h3>
     <script class="visible">
         var f = getTargetFunction(),
-            isValid = !f('проверяемая строка', 10);
+            result = f('проверяемая строка', 10),
+            isValid = result === false;
     </script>
     <h4>Результат:</h4>
     <details>
         <summary>
             <script>printStatus(isValid)</script>
         </summary>
-        <script>printVars({isValid})</script>
+        <script>printVars({isValid, result})</script>
     </details>
 </fieldset>
 </body>
